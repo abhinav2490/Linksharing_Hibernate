@@ -127,6 +127,14 @@ public class User {
         this.topicsCreated = topicsCreated;
     }
 
+    public Collection<Subscription> getSubscriptions() {
+        return subscriptions;
+    }
+
+    public void setSubscriptions(Collection<Subscription> subscriptions) {
+        this.subscriptions = subscriptions;
+    }
+
     public User() {
     }
 
@@ -143,13 +151,6 @@ public class User {
         this.lastUpdated = userData.lastUpdated;
     }
 
-    public Collection<Subscription> getSubscriptions() {
-        return subscriptions;
-    }
-
-    public void setSubscriptions(Collection<Subscription> subscriptions) {
-        this.subscriptions = subscriptions;
-    }
 //    static hasMany = [readStatus: ReadStatus, resources: Resource]
 //    static constraints = {
 //        email(email: true, unique: true)

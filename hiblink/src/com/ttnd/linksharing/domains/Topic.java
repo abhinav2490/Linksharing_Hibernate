@@ -20,6 +20,9 @@ public class Topic {
     @ManyToOne
     @JoinColumn(name = "creator_id")
     private User creator;
+    @OneToMany(cascade = CascadeType.REMOVE,mappedBy = "topic")
+    private Collection<Subscription> subscriptions = new ArrayList<Subscription>();
+
 
     public Integer getId() {
         return id;
@@ -59,6 +62,14 @@ public class Topic {
 
     public void setCreator(User creator) {
         this.creator = creator;
+    }
+
+    public Collection<Subscription> getSubscriptions() {
+        return subscriptions;
+    }
+
+    public void setSubscriptions(Collection<Subscription> subscriptions) {
+        this.subscriptions = subscriptions;
     }
 
     public Topic() {

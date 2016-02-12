@@ -15,9 +15,9 @@ public class Subscription {
     Seriousness seriousLevel;
     Date dateCreated;
     Date lastUpdated;
-    @ManyToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
     User user;
-    @OneToOne
+    @ManyToOne
     Topic topic;
 
     public Seriousness getSeriousLevel() {

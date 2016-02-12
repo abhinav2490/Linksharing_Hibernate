@@ -31,11 +31,11 @@ public class Main {
         TopicDTO topicDTO = new TopicDTO();
         topicDTO.name = "Groovy";
         topicDTO.creator = user;
-        topicManager.addTopic(topicDTO);
+        Integer topicId = topicManager.addTopic(topicDTO);
 
         session = FactoryProvider.factory.openSession();
          tx = session.beginTransaction();
-        Topic topic = (Topic) session.get(Topic.class,userId);
+        Topic topic = (Topic) session.get(Topic.class,topicId);
         tx.commit();
         session.close();
 
@@ -46,7 +46,8 @@ public class Main {
         Integer subsId = subscriptionManager.addSubscription(subscriptionDTO);
         subscriptionManager.updateSeriousLevel(Seriousness.CASUAL,subsId);
 
-        manager.deleteUser(userId);
+//        manager.deleteUser(userId);
+        topicManager.deleteTopic(topicId);
     }
 }
 
